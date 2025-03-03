@@ -80,7 +80,7 @@ printTest AGTest {score, max_score, number, output} = do
       ss (Just s) (Just ms) = show s ++ "/" ++ show ms
       ss (Just s) Nothing = show s ++ " points"
       ss _ _ = "no score"
-  putStrLn $ T.unpack number ++ ")"
+  putStrLn $ "(" ++ T.unpack number ++ ")"
   putStrLn $ "\t" ++ ss score max_score
   putStrLn $ "\t" ++ T.unpack output
 

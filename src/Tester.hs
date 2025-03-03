@@ -203,7 +203,7 @@ gradescopeProblem' vis p@Problem {..} = do
     G.AGTest
       { G.score = Just (fromIntegral autoScore),
         G.max_score = Just (fromIntegral (testPoints p)),
-        G.number = T.pack ("(" ++ name),
+        G.number = T.pack name,
         G.output = T.pack autoInfo,
         G.visibility = vis
       }
