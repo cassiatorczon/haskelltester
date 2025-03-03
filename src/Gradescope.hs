@@ -104,7 +104,7 @@ totalMaxScore :: AGResult -> Double
 totalMaxScore = sum . mapMaybe max_score . tests
 
 totalScore :: AGResult -> Double
-totalScore = sum . mapMaybe getScore . tests
+totalScore = sum . mapMaybe getAGTestScore . tests
 
 recordResult :: AGResult -> IO ()
 recordResult result = do
