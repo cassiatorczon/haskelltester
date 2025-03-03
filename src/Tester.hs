@@ -211,7 +211,7 @@ gradescopeProblem' vis p@Problem {..} = do
 gradeScopeMain' :: String -> G.Visibility -> G.Visibility -> [Problem] -> IO ()
 gradeScopeMain' course visProblems visSum problems = do
   ts <- mapM (gradescopeProblem' visProblems) problems
-  let scores = Prelude.map (G.score :: G.AGTest -> Maybe Double) ts
+  let scores = Prelude.map G.getAGTestScore ts
   let record =
         G.AGResult
           { G.score = Just (sum . catMaybes $ scores),
