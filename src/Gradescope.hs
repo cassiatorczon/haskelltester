@@ -104,7 +104,7 @@ totalMaxScore :: AGResult -> Double
 totalMaxScore = sum . mapMaybe max_score . tests
 
 totalScore :: AGResult -> Double
-totalScore = sum . mapMaybe (score :: AGTest -> Maybe Double) . tests
+totalScore = sum . mapMaybe getScore . tests
 
 recordResult :: AGResult -> IO ()
 recordResult result = do
@@ -128,3 +128,25 @@ writeResult result = do
 
 tshow :: (Show a) => a -> Text
 tshow = T.pack . show
+
+-- score disambiguation
+
+getAGTestScore :: AGTest -> Maybe Double
+getAGTestScore
+  AGTest
+    { score = s,
+      max_score = _,
+      number = _,
+      output = _,
+      visibility = _
+    } = s
+
+getAGResultScore :: AGResult -> Maybe Double
+getAGResultScore
+  AGResult
+    { score = s,
+      execution_time = _,
+      output = _,
+      visibility = _,
+      tests = _
+    } = s
