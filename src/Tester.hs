@@ -214,7 +214,7 @@ gradeScopeMain' course visProblems visSum problems = do
   let scores = Prelude.map (G.score :: G.AGTest -> Maybe Double) ts
   let record =
         G.AGResult
-          { G.result_score = Just (sum . catMaybes $ scores),
+          { G.score = Just (sum . catMaybes $ scores),
             G.execution_time = Nothing,
             G.output = (mconcat . map T.pack) [course, " HUnit test results"],
             G.visibility = visSum,

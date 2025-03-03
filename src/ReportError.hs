@@ -18,6 +18,6 @@ main = do
       result =
         def_result
           { output = "Test harness failure:\n" <> error_msgs,
-            result_score = Just 0
+            score = Just 0
           }
   writeResult result
